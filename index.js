@@ -5,8 +5,8 @@ const fetch = require('fetch').fetchUrl;
 
 console.log()
 
-var port = process.env.FRONTEND_PORT || 8081;
-var ip = process.env.FRONTEND_IP || '127.0.0.1'; 
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8081;
+var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'; 
 
 const backendPort = process.env.BACKEND_PORT || 8080;
 const backendIP = process.env.BACKEND_HOST || '127.0.0.1';
