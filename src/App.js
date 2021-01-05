@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [ timestamp, setTimestamp ] = useState('')
+
+  const clickHandler = () => {
+    fetch(`/api/timestamp`)
+    .then(res => res.json())
+    .then(result => {
+      const resultDate = new Date(result.timestamp);
+
+      setTimestamp(resultDate.toISOString());
+    })
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={clickHandler}>GET TIME</button>
+
+      <p>Server time: {timestamp}</p>
     </div>
   );
 }
