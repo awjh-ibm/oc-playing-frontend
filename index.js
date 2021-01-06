@@ -26,6 +26,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(port, ip, () => {
+app.listen(port, () => {
     console.log(`Example app listening at http://${ip}:${port}`)
 });
