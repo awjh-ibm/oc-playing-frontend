@@ -12,6 +12,9 @@ const backendIP = process.env.BACKEND_HOST || '127.0.0.1';
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/api/timestamp', (req, res) => {
+
+    console.log('CALLING', backendIP, backendPort);
+
     fetch(`http://${backendIP}:${backendPort}`, (error, meta, body) => {
         if (error) {
             res.status(400);
